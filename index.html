@@ -24,15 +24,15 @@ html {
 background-image:url('https://bridgetobridge.com/img/21435373364_6098810038_o.jpg');
 background-position:center top;
 margin:0 auto;
-max-height:1335px;
-height:1335px;
+max-height:1200px;
+height:1200px;
 background-repeat:no-repeat;
 }
 body {
 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 background-color:#373a3c;
 background-color:rgba(50,50,50,0.80);
-height:1335px;
+height:1200px;
 }
 </style>
   <nav class="navbar navbar-default navbar-fixed-top">
@@ -61,17 +61,36 @@ height:1335px;
   	
     <div class="inner cover">
       <h1 class="text-center">
-      <span class="headline">Registration Now Open!</span><br>
-      Sunday, October 2nd<br>
+      <span class="headline">Sunday, October 2nd</span><br>
       San Francisco, CA
+      <div class="cta-regBtn"><a href="register.html">Register Now</a></div>
       </h1>
-      <p class="lead text-center" id="home-content">
-      <em>"America's Most Beautiful Run"</em><br>
-      Check out the highlights from last year</p>
-      <div id="video-main">
-          <iframe width="654" height="368" src="https://www.youtube.com/embed/Ih-9wsGLTb4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+      <div class="text-center">
+      <div id="clockdiv">
+        <div>
+          <span class="days"></span>
+          <div class="smalltext">Days</div>
+        </div>
+        <div>
+          <span class="hours"></span>
+          <div class="smalltext">Hours</div>
+        </div>
+        <div>
+          <span class="minutes"></span>
+          <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+          <span class="seconds"></span>
+          <div class="smalltext">Seconds</div>
+        </div>
       </div>
-            		
+      </div>
+      <div class="banner white" id="homeContent">
+        <p class="text-center" style="color:#ffffff; font-size:16px;"><span style="font-size:30px; ">Joins us for <em>"America's Most Beautiful Run"</em></span><br>Check out the highlights from last year</p>
+        <div id="video-main">
+            <iframe width="500" height="281" src="https://www.youtube.com/embed/Ih-9wsGLTb4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>      		
     </div>
   	<footer>
     	<p>To contact us with any questions email <a href="mailto:bridgetobridgerun@gmail.com">bridgetobridgerun@gmail.com</a></p>
@@ -82,5 +101,49 @@ height:1335px;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <script>
+	  function getTimeRemaining(endtime) {
+		var t = Date.parse("10/02/2016") - Date.parse(new Date());
+		var seconds = Math.floor((t / 1000) % 60);
+		var minutes = Math.floor((t / 1000 / 60) % 60);
+		var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+		var days = Math.floor(t / (1000 * 60 * 60 * 24));
+		return {
+		  'total': t,
+		  'days': days,
+		  'hours': hours,
+		  'minutes': minutes,
+		  'seconds': seconds
+		};
+	  }
+	  
+	  function initializeClock(id, endtime) {
+		var clock = document.getElementById(id);
+		var daysSpan = clock.querySelector('.days');
+		var hoursSpan = clock.querySelector('.hours');
+		var minutesSpan = clock.querySelector('.minutes');
+		var secondsSpan = clock.querySelector('.seconds');
+	  
+		function updateClock() {
+		  var t = getTimeRemaining(endtime);
+	  
+		  daysSpan.innerHTML = t.days;
+		  hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+		  minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+		  secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+	  
+		  if (t.total <= 0) {
+			clearInterval(timeinterval);
+		  }
+		}
+	  
+		updateClock();
+		var timeinterval = setInterval(updateClock, 1000);
+	  }
+	  
+	  var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+	  initializeClock('clockdiv', deadline);
+	</script>
   </body>
 </html>
