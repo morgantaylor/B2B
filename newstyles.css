@@ -6,7 +6,7 @@ html {
 	margin:0 auto;
 }
 body {
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 height:1335px;
 }
 
@@ -21,7 +21,8 @@ margin:0;
 padding:30px 0px 50px 0px;	
 }
 .sponsorTitle {
-font-size:1.4em;
+font-size:1.5em;
+font-weight:bold;
 margin:5px auto;
 padding:10px 0px;	
 }
@@ -44,6 +45,16 @@ font-size:.8em;
 }
 a, a:hover {
 color:#ffffff;
+text-decoration:none;
+text-transform:none;
+}
+.link {
+color:#00538C;
+text-decoration:none;
+text-transform:none;	
+}
+.link:hover {
+color:#00538C;
 text-decoration:none;
 text-transform:none;
 }
@@ -140,6 +151,7 @@ margin:0 auto;
 padding-right:15px;
 padding-left:15px;
 max-width:1024px;
+margin-bottom:50px;
 }
 .block {
 position:relative;
@@ -228,8 +240,11 @@ padding:1rem;
 }
 .innerParty {
 padding: 1rem;
-max-height: 1335px;
-height: 1335px;
+max-height: 1700px;
+height: 1700px;
+}
+.innerParty p {
+color:#000000;	
 }
 .centerPage {
 margin:0 auto;
@@ -255,7 +270,7 @@ height:auto;
 padding:30px 0px;
 }
 .white {
-background-color:rgba(250,250,250,.50);
+background-color:rgba(250,250,250,.40);
 }
 .lightBlue {
 background-color:rgba(53,208,239,.50);
@@ -265,6 +280,7 @@ margin-top:100px;
 }
 #video-main {
 width:100%;
+max-width:600px;
 height:auto;
 margin:0 auto;
 text-align:center;
@@ -324,7 +340,6 @@ margin-left:30px;
 float:right;
 clear:right;
 font-size:14px;
-color:#000000;
 box-shadow:none;
 text-decoration:none;
 text-transform:none;	
@@ -334,10 +349,8 @@ display:inline-block;
 position:relative;
 float:left;
 clear:left;
-max-width:80px;
+max-width:100px;
 width:100%;
-max-height:70px;
-height:auto;
 vertical-align:middle;
 }
 .line {
@@ -384,19 +397,32 @@ text-align:center;
 .sponsor tr td {
 display:inline-block;
 position:relative;
-max-width:300px;
+max-width:200px;
 width:100%;
-margin:10px;
+margin:0px 10px;
 padding:0;
 text-align:center;
 }
 .sponsor td a img {
 position:relative;
 display:block;
-max-width:300px;
-width:50%;
+max-width:120px;
+width:100%;
 margin:0 auto;
 text-align:center;		
+}
+#glide {
+max-width:350px !important; 
+width:100% !important; 
+}
+#dignity {
+max-width:400px !important; 
+width:100% !important;   
+margin: 30px 0px !important; 
+}
+.station {
+max-width:200px; 
+width:100% !important; 
 }
 #registration {
 margin-top:30px;
@@ -490,6 +516,9 @@ top: -40px;
 	}
 	.navbar-right {
     	margin-right: -60px;
+	}
+	.pageWrapper {
+		padding-bottom:80px;	
 	}
 	.headline {
 		font-size:1em;
